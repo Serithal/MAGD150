@@ -1,40 +1,37 @@
 function setup() {
   createCanvas(400, 400);
-   background(0, 80, 90);
-   //prints a few mathmatical calculations only once since it is in the setup bracket so it is best to start the program count to one then stop it and then scroll to the beginning of the console
-  push();
-  print('--The difference between 15 and 3 is-- ' + 15/3 );
-  print('--The solution to 8 multiplied by itself is--  ' + 8 * 8);
+  background(220, 200, 0);
+    push();
+  fill(220, 150, 0);
+  ellipse(200, 200, 300, 300);
   pop();
+  X = 240;
 }
 
 function draw() {
-  //ellipse that follows the cursor (blue)
+  loop();
   push();
-  fill(0, 60, 140);
-  ellipse(mouseX, mouseY, 100.25, 100.25);
+  //moving ellipse pepperoni
   push();
-  fill(0, 150, 180);
-  ellipse(mouseX + 16, mouseY - 24, 30.5, 45.5);
+  fill(0, 100, 0);
+  ellipse(X, 130, 20, 20);
+  X = X + 1;
+  if(X > 300){X = 240;}
   pop();
-  pop();
-  //prints the frame count multiplied by 2
+  //pizza sauce
   push();
-  print('The current frame count multiplied by two is ' + frameCount * 2);
+  fill(240, 0, 0);
+  noStroke();
+  if(mouseIsPressed){ellipse(mouseX, mouseY, 50, 50);}
   pop();
-  //prints the previous mouse X and Y locations
+  //adds peppers
   push();
-  print('The current Mouse X location is ' + pmouseX);
-  print('The current Mouse Y location is ' + pmouseY);
+  fill(0, 140, 0);
+  if(keyIsPressed){triangle(mouseX, mouseY + 20, mouseX + 20, mouseY, mouseX - 20, mouseY);}
   pop();
-  //maps the current mouse Y position and displays an ellipse at the location only between Y value of 40 and 360
   push();
-  let Min1 = min(40, 60);
-  let Max1 = max(360, 320);
-  let CY = constrain(mouseY, Min1 , Max1);
-  let E1 = map(CY, 0, height, 0, 400, true);
-  fill(255);
-  ellipse(50, E1, 25, 45);
+  fill(200, 0, 0);
+   //While (mouseIsPressed){ellipse(350, 350, 20, 20);}
   pop();
- 
+  //couldn't get while loops to work or for loops as any time I tried them they crashed the web browser
 }
